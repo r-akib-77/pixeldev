@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05070f">
+<meta name="description" content="PixelDev — Rakib, Full Stack Developer. An explorable pixel-art portfolio world.">
+<title>PixelDev — A Living Pixel-Art World</title>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect width="16" height="16" fill="%230a1226"/><path d="M4 3h8v2H4zM3 5h10v5H3zM4 10h8v2H4zM6 12h4v2H6z" fill="%23ff5f57"/><path d="M5 6h2v2H5zM9 6h2v2H9z" fill="%23fff"/></svg>'>
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="styles/game.css">
+<link rel="stylesheet" href="styles/desktop.css">
+<link rel="stylesheet" href="styles/mobile.css">
+<link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3.6"/><path d="M4.5 20c.6-4 3.6-6 7.5-6s6.9 2 7.5 6z"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><path d="M12 8.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6zm0 2a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6z"/><path d="M10.6 2.5h2.8l.4 2.4c.7.2 1.4.5 2 .9l2.2-1.1 2 2-1.1 2.2c.4.6.7 1.3.9 2l2.4.4v2.8l-2.4.4c-.2.7-.5 1.4-.9 2l1.1 2.2-2 2-2.2-1.1c-.6.4-1.3.7-2 .9l-.4 2.4h-2.8l-.4-2.4c-.7-.2-1.4-.5-2-.9l-2.2 1.1-2-2 1.1-2.2c-.4-.6-.7-1.3-.9-2l-2.4-.4v-2.8l2.4-.4c.2-.7.5-1.4.9-2L4 6.7l2-2 2.2 1.1c.6-.4 1.3-.7 2-.9z"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h4.6c.4 0 .8.2 1.1.5L11.6 7h7.9A1.5 1.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></symbol>
+  <symbol id="i-blog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 20.2H4a1.6 1.6 0 0 1-1.6-1.6V5.4A1.6 1.6 0 0 1 4 3.8h7.2l1.6 1.8h7.2a1.6 1.6 0 0 1 1.6 1.6v3"/><path d="M18.6 11.2l2.6 2.6-7 7-3.4.8.8-3.4z"/></symbol>
+  <symbol id="i-resume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6M9 9h1.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 5.8 9-5.8"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9.5h3L12 5v14l-5-4.5H4z"/><path d="M15.5 8.7a5 5 0 0 1 0 6.6M18 6.2a8.4 8.4 0 0 1 0 11.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9.5h3L12 5v14l-5-4.5H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 1 1 3.7 2.3c-.8.5-1.3 1-1.3 1.9"/><path d="M12 16.8h.01"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 6.5v13l6-3.2 6 3.2 6-3.2v-13l-6 3.2-6-3.2z"/><path d="M9 3.3v13M15 6.5v13"/></symbol>
+  <symbol id="i-fs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3M21 16v3a2 2 0 0 1-2 2h-3"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6L8.5 12l6 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></symbol>
+  <symbol id="i-chev-u" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14.5l6-6 6 6"/></symbol>
+  <symbol id="i-chev-d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M9 11V4.8a1.6 1.6 0 0 1 3.2 0V10l4.6.9c1.4.3 2.4 1.5 2.4 3v2.6A5.5 5.5 0 0 1 13.7 22h-1.2a5.5 5.5 0 0 1-4-1.7l-3.2-3.4a1.5 1.5 0 0 1 2-2.2L9 16.4z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.4l-7.2-7a4.9 4.9 0 0 1 0-7 4.7 4.7 0 0 1 6.8 0l.4.5.4-.5a4.7 4.7 0 0 1 6.8 0 4.9 4.9 0 0 1 0 7z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6.3-8 12.6-8 12.6S4 16.3 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5.5"/><path d="M14.5 3H21v6.5M10 14L21 3"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M22 9.5L12 4.5l-10 5 10 5z"/><path d="M6.5 12v4.6c0 1.5 2.5 2.9 5.5 2.9s5.5-1.4 5.5-2.9V12M20 11v5"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 21c-4.4 0-7.5-3.1-7.5-7.5C4.5 8 9 4 20 3.5c.4 10.5-3.5 17.5-8 17.5z"/><path d="M5.5 20.5C8 15 12 11.5 17 9.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.5 20c.5-3.6 3.2-5.4 6.5-5.4s6 1.8 6.5 5.4z"/><path d="M16.5 5.2a3.1 3.1 0 0 1 0 5.9M18 14.8c2.2.6 3.6 2.2 3.9 5.2h-4.6"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20h16M7.5 17v-6M12 17V5M16.5 17v-9"/></symbol>
+  <symbol id="i-ball" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 6.4l3.9 2.8-1.5 4.6h-4.8L8.1 9.2z" fill="currentColor" stroke="none"/><path d="M12 3.4v3M6 5.5l2.1 3.7M18 5.5l-2.1 3.7M5.2 17.6l4-2.9M18.8 17.6l-4-2.9M12 20.6v-3.4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11M7.5 10L12 14.5 16.5 10M4.5 17.5v2a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-2"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.6 2.4 3.9 5.3 3.9 8.6s-1.3 6.2-3.9 8.6c-2.6-2.4-3.9-5.3-3.9-8.6S9.4 5.8 12 3.4z"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2.2A9.8 9.8 0 0 0 8.9 21.3c.5.1.7-.2.7-.5v-1.7c-2.7.6-3.3-1.3-3.3-1.3-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.3 1.1 2.9.9.1-.6.3-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.2-.4-1.3.1-2.6 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.4.1 2.6.6.7 1 1.6 1 2.7 0 3.8-2.4 4.6-4.6 4.9.3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A9.8 9.8 0 0 0 12 2.2z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="9.5" width="3.8" height="11.5" rx=".6"/><circle cx="4.9" cy="5.4" r="1.9"/><path d="M10 9.5h3.6v1.7c.6-1 1.8-1.9 3.6-1.9 2.8 0 4.3 1.8 4.3 5V21h-3.8v-6c0-1.6-.6-2.6-1.9-2.6-1.4 0-2 .9-2 2.6v6H10z"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2.5L3.5 13.5H10l-1 8L19.5 10H13z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></symbol>
+  <symbol id="i-atom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none"/><path d="M12 4.2c3.9-2.4 7.3-2.7 8.6-1.1 1.2 1.6-.2 4.7-3.6 7.9M12 19.8c-3.9 2.4-7.3 2.7-8.6 1.1-1.2-1.6.2-4.7 3.6-7.9M19.8 9.3c1.9 3.9 1.9 7.2 0 8.4-2 1.2-5.1-.6-7.8-3.7M4.2 14.7C2.3 10.8 2.3 7.5 4.2 6.3c2-1.2 5.1.6 7.8 3.7"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8c2.3-2.6 4.7-2.6 7 0s4.7 2.6 7 0M4 15c2.3-2.6 4.7-2.6 7 0s4.7 2.6 7 0"/></symbol>
+  <symbol id="i-hex" viewBox="0 0 24 24"><path d="M12 2.2l8.4 4.9v9.8L12 21.8l-8.4-4.9V7.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.8 8h1.9l1.4 4 1.3-4h2l-2.3 8h-1.9z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-13M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/></symbol>
+  <symbol id="i-tri" viewBox="0 0 24 24"><path d="M12 4l9 15H3z"/></symbol>
+  <symbol id="i-branch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="6.5" cy="5.5" r="2.3"/><circle cx="6.5" cy="18.5" r="2.3"/><circle cx="17.5" cy="8.5" r="2.3"/><path d="M6.5 7.8v8.4M17.5 10.8c0 3.4-4 3-7.5 4.4"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 8l8-4.5L20 8v8l-8 4.5L4 16z"/><path d="M4 8l8 4.5L20 8M12 12.5V21"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 3v4h-4"/></symbol>
+</svg>
+<div id="app">
+  <canvas id="game" width="960" height="608" role="img" aria-label="Interactive pixel-art world: Rakib's developer room surrounded by a night garden. Walk with WASD or arrow keys, or the on-screen pad. Press E near a highlighted object to open its section, or click a label."></canvas>
+  <div id="hotspots"></div>
+  <div id="vig" aria-hidden="true"></div>
+
+  <header id="hud" aria-label="Player profile">
+    <canvas id="hudPortrait" width="24" height="24" aria-hidden="true"></canvas>
+    <div class="hud-info">
+      <div class="hud-name" id="hudName">Rakib</div>
+      <div class="hud-role" id="hudRole">Full Stack Developer</div>
+      <div class="hud-stats" aria-hidden="true">
+        <span class="hearts" id="hudHearts"></span>
+        <span class="xp"><i id="hudXp"></i></span>
+        <span class="lvl">Lv. 1</span>
+      </div>
+    </div>
+  </header>
+
+  <div id="controls" aria-label="Game utilities">
+    <button id="btnSound" class="ctl-btn" aria-label="Sound: off" aria-pressed="false" title="Sound">
+      <svg class="ic on"><use href="#i-sound"/></svg><svg class="ic off"><use href="#i-mute"/></svg>
+    </button>
+    <button id="btnHelp" class="ctl-btn" aria-label="Help" title="Help">
+      <svg class="ic"><use href="#i-help"/></svg>
+    </button>
+    <button id="btnMap" class="ctl-btn wide" aria-label="View map" title="View Map">
+      <svg class="ic"><use href="#i-map"/></svg><span class="ctl-label">View Map</span>
+    </button>
+    <button id="btnFs" class="ctl-btn" aria-label="Fullscreen" title="Fullscreen">
+      <svg class="ic"><use href="#i-fs"/></svg>
+    </button>
+  </div>
+
+  <nav id="navbar" aria-label="Portfolio sections"></nav>
+
+  <button id="menuBtn" aria-label="Open menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+
+  <div id="dpad" aria-label="Movement controls">
+    <button class="dpad-btn" data-dir="up"    style="grid-area:1/2" aria-label="Move up"><svg class="ic"><use href="#i-chev-u"/></svg></button>
+    <button class="dpad-btn" data-dir="left"  style="grid-area:2/1" aria-label="Move left"><svg class="ic"><use href="#i-chev-l"/></svg></button>
+    <button class="dpad-btn" data-dir="right" style="grid-area:2/3" aria-label="Move right"><svg class="ic"><use href="#i-chev-r"/></svg></button>
+    <button class="dpad-btn" data-dir="down"  style="grid-area:3/2" aria-label="Move down"><svg class="ic"><use href="#i-chev-d"/></svg></button>
+  </div>
+  <button id="interactBtn" aria-label="Interact with the nearest object"><svg class="ic"><use href="#i-hand"/></svg></button>
+
+  <div id="prompt" aria-hidden="true"><kbd id="promptKey">E</kbd><span id="promptTxt">Interact</span></div>
+
+  <div id="panels"></div>
+  <div id="backdrop" aria-hidden="true"></div>
+  <div id="tip" role="note" hidden></div>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <div id="sr" class="sr-only" aria-live="polite"></div>
+
+  <div id="boot" aria-hidden="true"><div class="boot-in"><b>PIXELDEV</b><span>A Living Pixel-Art World</span></div></div>
+  <noscript><div class="nojs">PixelDev is an interactive world and needs JavaScript enabled.</div></noscript>
+</div>
+
+<script src="scripts/data.js"></script>
+<script src="scripts/art.js"></script>
+<script src="scripts/world.js"></script>
+<script src="scripts/audio.js"></script>
+<script src="scripts/game.js"></script>
+<script src="scripts/ui.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>

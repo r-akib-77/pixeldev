@@ -1,0 +1,75 @@
+/* ============================================================
+   PixelDev — desktop.css
+   Fine-pointer / wide layout: centered panels, map & help modals.
+   body.touch toggles the mobile layout instead.
+   ============================================================ */
+
+body:not(.touch) .panel{
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  width:min(780px,94vw);
+  height:auto;
+  min-height:340px;
+  max-height:min(86vh,720px);
+}
+body:not(.touch) .panel.open{animation:panel-in .24s cubic-bezier(.34,1.35,.64,1)}
+
+/* touch-only elements hidden on desktop */
+body:not(.touch) #dpad,
+body:not(.touch) #interactBtn,
+body:not(.touch) #menuBtn{display:none}
+
+/* map & help modals (shared shell for extra dialogs) */
+.modal{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  z-index:70;display:none;flex-direction:column;
+  background:linear-gradient(180deg,#101a30f6,#0d1526f6);
+  border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:var(--shadow-pop), inset 0 1px 0 rgba(255,255,255,.06);
+  overflow:hidden;
+}
+.modal.open{display:flex;animation:panel-in .22s cubic-bezier(.34,1.35,.64,1)}
+
+/* --- map modal --- */
+#mapModal{width:min(440px,94vw)}
+.map-canvas-wrap{position:relative;padding:16px;display:grid;place-items:center;background:rgba(5,9,20,.4)}
+#mapCanvas{width:100%;max-width:400px;border-radius:10px;border:1px solid var(--line-soft);box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.map-pin{
+  position:absolute;z-index:2;width:26px;height:26px;margin:-13px 0 0 -13px;
+  border-radius:50%;
+  background:rgba(11,20,40,.9);border:1.5px solid var(--cyan);
+  color:var(--cyan);display:grid;place-items:center;
+  box-shadow:0 3px 10px rgba(0,0,0,.5),var(--glow-cyan);
+  transition:transform .15s,border-color .15s;
+}
+.map-pin .ic{width:13px;height:13px}
+.map-pin:hover{transform:scale(1.18);border-color:var(--gold);color:var(--gold)}
+.map-pin.you{background:var(--gold);border-color:#fff;color:#3a2c05;z-index:3}
+.map-legend{padding:0 16px 14px;display:flex;flex-wrap:wrap;gap:7px}
+.map-legend .chip{cursor:pointer}
+
+/* --- help modal --- */
+#helpModal{width:min(520px,94vw)}
+.help-body{padding:18px 22px;display:grid;gap:13px}
+.help-row{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ink-dim)}
+.help-row kbd{
+  font-family:var(--font-mono);font-size:10.5px;font-weight:800;flex:none;
+  background:#f2f5ff;color:#0b1224;border-radius:4px;padding:2px 7px 3px;
+  box-shadow:0 2px 0 #9aa7c9;min-width:26px;text-align:center;
+}
+.help-row b{color:var(--ink)}
+.help-title{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);margin-top:4px}
+
+/* desktop-specific panel grids */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.ach-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* project detail modal */
+.proj-detail .panel-body{padding:20px 24px}
+.proj-hero{width:100%;border-radius:10px;border:1px solid var(--line-soft);margin-bottom:14px}
+
+/* hide navbar entirely when a modal fills screen on desktop? keep, fine */
+body:not(.touch).modal-open #navbar{opacity:.35;pointer-events:none}
+body:not(.touch).modal-open #hud,
+body:not(.touch).modal-open #controls{opacity:.6;pointer-events:none}
