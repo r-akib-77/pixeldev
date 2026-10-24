@@ -429,18 +429,6 @@ const UI = (() => {
 
     achievements(body){
       body.innerHTML = "";
-      body.appendChild(el("h3", "sect-h", "Experience & Interests"));
-      const grid = el("div", "ach-grid");
-      DATA.achievements.forEach(a => {
-        const card = el("div", "card ach-card");
-        card.innerHTML =
-          '<span class="ach-ic" style="color:' + accentFor(a.icon) + '">' + ico(a.icon) + "</span>" +
-          '<div class="ach-info"><div class="ach-title">' + a.title + "</div>" +
-          '<p class="ach-desc">' + a.desc + "</p>" +
-          '<span class="chip gray">' + a.meta + "</span></div>";
-        grid.appendChild(card);
-      });
-      body.appendChild(grid);
 
       /* HackerRank skill certificates — real awards, link out to verify */
       if (DATA.certificates && DATA.certificates.length){
@@ -855,9 +843,11 @@ const UI = (() => {
     x.setAttribute("aria-label", "Dismiss tips");
     x.addEventListener("click", () => {
       tip.hidden = true;
+      tip.style.display = "none";
       LS.set("pixeldev.tutorial", "1");
     });
     tip.appendChild(x);
+    tip.style.display = "";
     tip.hidden = false;
   }
 
