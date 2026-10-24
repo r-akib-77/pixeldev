@@ -214,7 +214,7 @@ const UI = (() => {
     SND.sfx.open();
     menuSheet.classList.add("open");
     game.setPaused(true);
-    menuSheet.querySelector(".panel-close").focus();
+    menuSheet.querySelector(".panel-close").focus({ preventScroll: true });
   }
   function closeMenu(){
     if (!menuSheet.classList.contains("open")) return;
@@ -606,7 +606,7 @@ const UI = (() => {
     g2.imageSmoothingEnabled = false;
     g2.drawImage(ART.thumb(pr.thumb), 0, 0, 192, 128);
     m.classList.add("open");
-    m.querySelector(".panel-close").focus();
+    m.querySelector(".panel-close").focus({ preventScroll: true });
     SND.sfx.click();
   }
 
@@ -630,7 +630,7 @@ const UI = (() => {
     m.querySelector("h3").textContent = post.title;
     m.querySelector("p.dim").textContent = post.body;
     m.classList.add("open");
-    m.querySelector(".panel-close").focus();
+    m.querySelector(".panel-close").focus({ preventScroll: true });
     unlockGameAch("read");
     SND.sfx.click();
   }
@@ -723,7 +723,7 @@ const UI = (() => {
         }
       });
     });
-    $("#mapModal .panel-close").focus();
+    $("#mapModal .panel-close").focus({ preventScroll: true });
   }
   function closeMap(){
     mapOpen = false;
@@ -736,7 +736,7 @@ const UI = (() => {
     $("#helpModal").classList.add("open");
     document.body.classList.add("modal-open");
     game.setPaused(true);
-    $("#helpModal .panel-close").focus();
+    $("#helpModal .panel-close").focus({ preventScroll: true });
   }
   function closeHelp(){
     $("#helpModal").classList.remove("open");
