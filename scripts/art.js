@@ -542,6 +542,82 @@ const ART = (() => {
         R(g, 84, 38, 6, 6, "#6fbf4a"); R(g, 85, 44, 4, 6, "#a05a34");
         text3(g, 6, 30, "PIXELDEV", "#ffd24a", 1);
       });
+    },
+    odyssey(){
+      return bake(96, 64, g => {
+        /* football club crest over a pitch edge */
+        thumbBase(g, "#0b1e34", "#0d1626");
+        for (let i = 0; i < 9; i++) R(g, 4 + i * 10, 12, 8, 10, i % 2 ? "#19344a" : "#22476b");
+        /* shield */
+        R(g, 34, 8, 28, 24, "#12294a");
+        R(g, 34, 8, 28, 3, "#5cc8ff");
+        R(g, 38, 15, 20, 10, "#ffd24a");
+        text3(g, 41, 17, "10", "#101a30", 1);
+        text3(g, 38, 34, "FC", "#5cc8ff", 2);
+        /* pitch */
+        R(g, 4, 50, 88, 12, "#1d5a34");
+        for (let i = 0; i < 5; i++) R(g, 8 + i * 18, 50, 9, 12, "#22854a");
+        disc(g, 76, 50, 5, "#f4f6ff");
+        px(g, 75, 49, "#223"); px(g, 77, 49, "#223"); px(g, 76, 51, "#223");
+      });
+    },
+    interior(){
+      return bake(96, 64, g => {
+        /* artisan boutique: framed art + hoop */
+        thumbBase(g, "#2a1428", "#1a0f1e");
+        shopFront(g, "#331d2c", "#e8a87c", "#f6e0d0", "#e8a87c");
+        text3(g, 33, 10, "DIA", "#ffe9d8", 1);
+        /* framed canvas */
+        R(g, 20, 38, 13, 16, "#caa23f");
+        R(g, 22, 40, 9, 12, "#f6d8c8");
+        R(g, 24, 44, 5, 4, "#e8a87c");
+        /* embroidery hoop */
+        disc(g, 64, 44, 7, "#e8b4d8");
+        disc(g, 64, 44, 4, "#f6d8e8");
+        R(g, 55, 43, 18, 2, "#8a5c34");
+      });
+    },
+    brittrade(){
+      return bake(96, 64, g => {
+        /* trading terminals: candlesticks + ticker */
+        thumbBase(g, "#0d1631", "#0a0e22");
+        R(g, 10, 40, 5, 10, "#7fe07f");  R(g, 12, 34, 1, 20, "#7fe07f");
+        R(g, 20, 34, 5, 10, "#ff7a6b");  R(g, 22, 28, 1, 20, "#ff7a6b");
+        R(g, 30, 28, 5, 12, "#7fe07f");  R(g, 32, 22, 1, 22, "#7fe07f");
+        R(g, 40, 22, 5, 12, "#ffd24a");  R(g, 42, 16, 1, 22, "#ffd24a");
+        R(g, 50, 26, 5, 14, "#7fe07f");  R(g, 52, 20, 1, 22, "#7fe07f");
+        text3(g, 62, 16, "AI", "#ffd24a", 2);
+        R(g, 6, 56, 84, 2, "#1a2544");
+      });
+    },
+    classtg(){
+      return bake(96, 64, g => {
+        /* editor window with syntax-coloured lines */
+        thumbBase(g, "#101a30", "#0d1128");
+        R(g, 10, 12, 76, 46, "#0b1030");
+        R(g, 10, 12, 76, 5, "#1a2544");
+        R(g, 13, 13, 3, 3, "#ff7a6b"); R(g, 18, 13, 3, 3, "#ffd24a"); R(g, 23, 13, 3, 3, "#7fe07f");
+        R(g, 14, 24, 26, 3, "#5cc8ff"); R(g, 44, 24, 18, 3, "#7fe07f");
+        R(g, 14, 31, 18, 3, "#ffd24a"); R(g, 36, 31, 32, 3, "#3a4a74");
+        R(g, 14, 38, 40, 3, "#a78bff"); R(g, 58, 38, 14, 3, "#3a4a74");
+        R(g, 14, 45, 12, 3, "#7fe07f"); R(g, 30, 45, 34, 3, "#3a4a74");
+        text3(g, 34, 54, "SPL", "#9fd8ff", 1);
+      });
+    },
+    exclusive(){
+      return bake(96, 64, g => {
+        /* AI news digest: masthead + article cards */
+        thumbBase(g, "#0e1434", "#121a3e");
+        text3(g, 12, 8, "NEWS", "#ffd24a", 2);
+        R(g, 8, 22, 80, 2, "#5cc8ff");
+        R(g, 10, 28, 34, 22, "#1a2544");
+        R(g, 12, 30, 30, 2, "#ffd24a"); R(g, 12, 34, 26, 2, "#5cc8ff");
+        R(g, 12, 38, 28, 2, "#3a4a74"); R(g, 12, 42, 18, 2, "#3a4a74");
+        R(g, 50, 28, 34, 22, "#1a2544");
+        R(g, 52, 30, 28, 2, "#ffd24a"); R(g, 52, 34, 22, 2, "#5cc8ff");
+        R(g, 52, 38, 26, 2, "#3a4a74"); R(g, 52, 42, 14, 2, "#3a4a74");
+        R(g, 46, 30, 2, 16, "#223");
+      });
     }
   };
   function thumb(name){

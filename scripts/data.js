@@ -98,6 +98,46 @@ const DATA = {
       desc: "The interactive pixel-art world you're exploring right now — hand-painted canvas art, a tiny game engine and full portfolio UI in vanilla JS.",
       tags: ["HTML", "Canvas", "JavaScript"],
       thumb: "pixeldev"
+    },
+    {
+      id: "odyssey",
+      name: "Odyssey FC",
+      url: "https://odessey-fc.pages.dev/",
+      desc: "Official website of a football club — squad hub, news, trials and match section.",
+      tags: ["Next.js", "Tailwind"],
+      thumb: "odyssey"
+    },
+    {
+      id: "interior",
+      name: "Interior Flame by Dia",
+      url: "https://interior-flame-by-dia.pages.dev/",
+      desc: "Handcrafted art & décor store — paintings, embroidery hoops, custom frames and hand-painted attire.",
+      tags: ["Next.js", "Tailwind"],
+      thumb: "interior"
+    },
+    {
+      id: "brittrade",
+      name: "BritTrade",
+      url: "https://brittrade.britsync.co.uk/",
+      desc: "Automated crypto trading signals and an AI-powered futures trading platform.",
+      tags: ["React", "Vite"],
+      thumb: "brittrade"
+    },
+    {
+      id: "classtg",
+      name: "ClassTG",
+      url: "https://classtg.pages.dev/login",
+      desc: "Classroom coding lab — online code compiler with subject lessons and a student login.",
+      tags: ["HTML", "Monaco Editor"],
+      thumb: "classtg"
+    },
+    {
+      id: "exclusive",
+      name: "Exclusive Sources",
+      url: "https://exclusivesources.online/",
+      desc: "AI news and editorial digest — benchmarks, model breakdowns and engineering field reports.",
+      tags: ["Next.js", "Tailwind"],
+      thumb: "exclusive"
     }
   ],
 
@@ -127,6 +167,34 @@ const DATA = {
       icon: "ball", title: "Football",
       desc: "Play · Practice · Team.",
       meta: "For fun"
+    }
+  ],
+
+  /* HackerRank skill certificates — verified skill awards (link out) */
+  certificates: [
+    {
+      id: "rec-certificate",
+      issuer: "HackerRank",
+      title: "Frontend Developer (React)",
+      url: "https://www.hackerrank.com/certificates/ca33237ee048"
+    },
+    {
+      id: "js-certificate",
+      issuer: "HackerRank",
+      title: "JavaScript (Basic)",
+      url: "https://www.hackerrank.com/certificates/d727f405c816"
+    },
+    {
+      id: "node-certificate",
+      issuer: "HackerRank",
+      title: "Node (Basic)",
+      url: "https://www.hackerrank.com/certificates/dc3045cbf007"
+    },
+    {
+      id: "ps-certificate",
+      issuer: "HackerRank",
+      title: "Problem Solving (Basic)",
+      url: "https://www.hackerrank.com/certificates/01dde2777e72"
     }
   ],
 
@@ -182,12 +250,15 @@ const DATA = {
     note: "No resume PDF was found in the site assets yet. Add your file at assets/resume.pdf and refresh this page — the buttons below will enable automatically."
   },
 
-  /* ---------------- contact (PLACEHOLDERS until you supply real values) -- */
+  /* ---------------- contact (real details, live links) -- */
   contact: {
+    name: "Rakibul Hasan Rakib",
     message: "Let's work together! I'm always open to new opportunities.",
-    email: "rakib@example.com",          emailPlaceholder: true,
-    linkedin: "https://www.linkedin.com/", linkedinHandle: "linkedin.com/in/…", linkedinPlaceholder: true,
-    github: "https://github.com/",         githubHandle: "github.com/…",         githubPlaceholder: true
+    email: "rakibulhasanrakib2004@gmail.com",
+    phone: "+8801646774173",              phoneLabel: "+880 1646 774173",
+    linkedin: "https://www.linkedin.com/in/noobrakib/", linkedinHandle: "linkedin.com/in/noobrakib",
+    github: "https://github.com/r-akib-77",             githubHandle: "github.com/r-akib-77",
+    codeforces: "https://codeforces.com/profile/rakib_NP", codeforcesHandle: "codeforces.com/rakib_NP"
   },
 
   /* ---------------- navigation (order matters) ---------------- */

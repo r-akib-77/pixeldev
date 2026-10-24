@@ -442,6 +442,28 @@ const UI = (() => {
       });
       body.appendChild(grid);
 
+      /* HackerRank skill certificates — real awards, link out to verify */
+      if (DATA.certificates && DATA.certificates.length){
+        body.appendChild(el("h3", "sect-h", "Certifications"));
+        body.appendChild(el("div", "note info",
+          ico("cap") + "<span>" + DATA.certificates.length + " HackerRank skill certificates — each card opens the official certificate page.</span>"));
+        const cgrid = el("div", "ach-grid");
+        DATA.certificates.forEach(ct => {
+          const card = el("a", "card clickable ach-card");
+          card.href = ct.url;
+          card.target = "_blank";
+          card.rel = "noopener noreferrer";
+          card.setAttribute("aria-label", "Open " + ct.issuer + " certificate: " + ct.title);
+          card.innerHTML =
+            '<span class="ach-ic" style="color:' + accentFor("cap") + '">' + ico("cap") + "</span>" +
+            '<div class="ach-info"><div class="ach-title">' + ct.title + "</div>" +
+            '<p class="ach-desc">' + ct.issuer + " — verified skill certificate.</p></div>" +
+            '<span class="chip ok">' + ico("ext") + "Verify</span>";
+          cgrid.appendChild(card);
+        });
+        body.appendChild(cgrid);
+      }
+
       body.appendChild(el("h3", "sect-h", "In-Game Achievements"));
       body.appendChild(el("div", "note info",
         ico("play") + "<span>These unlock by actually exploring this little world — progress is saved in your browser only.</span>"));
@@ -529,10 +551,12 @@ const UI = (() => {
     contact(body){
       body.innerHTML = "";
       const c = DATA.contact;
+      const ph = !!(c.emailPlaceholder || c.linkedinPlaceholder || c.githubPlaceholder);
       const wrap = el("div", "contact-wrap");
       wrap.innerHTML =
         '<canvas id="contactArt" width="320" height="170"></canvas>' +
-        '<div class="contact-bubble">' + ico("hand") + "<span>" + c.message + "</span></div>" +
+        '<div class="contact-bubble">' + ico("hand") + "<span>" + c.message +
+          (c.name ? ' — <b>' + c.name + "</b>" : "") + "</span></div>" +
         '<div class="contact-cards">' +
           '<a class="card clickable contact-card" href="mailto:' + c.email + '" id="mailLink">' +
             '<span class="contact-ic" style="color:#ff7a6b">' + ico("mail") + "</span>" +
@@ -546,8 +570,22 @@ const UI = (() => {
             '<span class="contact-ic" style="color:#9fb0d8">' + ico("github") + "</span>" +
             '<span class="contact-info"><b>GitHub</b><span class="dim">' + c.githubHandle + "</span></span>" +
             (c.githubPlaceholder ? '<span class="placeholder">placeholder</span>' : ico("ext", "contact-ext")) + "</a>" +
+          (c.phone
+            ? '<a class="card clickable contact-card" href="tel:' + c.phone + '" aria-label="Call ' + (c.phoneLabel || c.phone) + '">' +
+                '<span class="contact-ic" style="color:#7fe07f">' + ico("phone") + "</span>" +
+                '<span class="contact-info"><b>Phone</b><span class="dim">' + (c.phoneLabel || c.phone) + "</span></span>" +
+                ico("ext", "contact-ext") + "</a>"
+            : "") +
+          (c.codeforces
+            ? '<a class="card clickable contact-card" href="' + c.codeforces + '" target="_blank" rel="noopener noreferrer">' +
+                '<span class="contact-ic" style="color:#a78bff">' + ico("codeforces") + "</span>" +
+                '<span class="contact-info"><b>Codeforces</b><span class="dim">' + c.codeforcesHandle + "</span></span>" +
+                ico("ext", "contact-ext") + "</a>"
+            : "") +
         "</div>" +
-        '<div class="note">' + ico("pin") + "<span>Contact details above are <b>placeholders</b> until real ones are added — edit the <b>contact</b> section of <b>scripts/data.js</b>.</span></div>";
+        (ph
+          ? '<div class="note">' + ico("pin") + "<span>Contact details above are <b>placeholders</b> until real ones are added — edit the <b>contact</b> section of <b>scripts/data.js</b>.</span></div>"
+          : "");
       body.appendChild(wrap);
       wrap.querySelector("#contactArt").getContext("2d").drawImage(ART.contactScene(), 0, 0);
       wrap.querySelector("#mailLink").addEventListener("click", () => unlockGameAch("hello"));
