@@ -98,26 +98,43 @@ const GAME = (() => {
   }
 
   /* ---------------- camera ---------------- */
-  /* FIXED camera: framing is computed only on init/resize, never from the
-     player position. The character walks around inside a stationary scene on
-     desktop AND touch — no follow-cam, no per-frame camera updates. */
   function updateCamera(){
     const W = data.W, H = data.H;
-    /* fit the whole world with room-aware zoom; never exceed cover */
-    const cover = Math.max(cssW / W, cssH / H);
-    const fit   = Math.min(cssW / W, cssH / H);
-    const roomFit = Math.min(
-      (cssW - 16) / (data.ROOM.x1 - data.ROOM.x0 + 60),
-      (cssH - 16) / (data.ROOM.y1 - data.ROOM.y0 + 60)
-    );
-    const s = Math.max(fit, Math.min(cover, roomFit));
-    cam.s = s;
-    /* pure centering: when the viewport is larger than the world the offsets
-       go negative (letter-/pillarbox); when it is smaller the crop is split
-       evenly on both sides */
-    cam.x = (W - cssW / s) / 2;
-    cam.y = (H - cssH / s) / 2;
+    if (!isTouch()){
+      /* fit whole world, cover viewport but never crop the room */
+      const cover = Math.max(cssW / W, cssH / H);
+      const fit   = Math.min(cssW / W, cssH / H);
+      const roomFit = Math.min(
+        (cssW - 16) / (data.ROOM.x1 - data.ROOM.x0 + 60),
+        (cssH - 16) / (data.ROOM.y1 - data.ROOM.y0 + 60)
+      );
+      const s = Math.max(fit, Math.min(cover, roomFit));
+      cam.s = s;
+      cam.x = (W - cssW / s) / 2;
+      cam.y = (H - cssH / s) / 2;
+      /* never leave world bounds */
+      cam.x = Math.max(0, Math.min(W - cssW / s, cam.x));
+      cam.y = Math.max(0, Math.min(H - cssH / s, cam.y));
+    } else {
+      /* mobile: zoom in a bit and follow the player */
+      let s = Math.min(
+        cssW / (data.ROOM.x1 - data.ROOM.x0 + 80),
+        cssH / (data.ROOM.y1 - data.ROOM.y0 + 40)
+      ) * 1.3;
+      /* guarantee the world covers the viewport in both axes (no black voids) */
+      s = Math.max(s, cssW / data.W, cssH / data.H);
+      cam.s = s;
+      followPlayer();
+    }
   }
+  function followPlayer(){
+    const vw = cssW / cam.s, vh = cssH / cam.s;
+    let tx = player.x - vw / 2, ty = player.y - vh / 2 - 10;
+    tx = Math.max(0, Math.min(data.W - vw, tx));
+    ty = Math.max(0, Math.min(data.H - vh, ty));
+    cam.x = tx; cam.y = ty;
+  }
+  function isTouch(){ return document.body.classList.contains("touch"); }
 
   /* ================================================================
      INPUT
@@ -378,6 +395,7 @@ const GAME = (() => {
       elapsed += dt;
       move(dt);
       checkNear();
+      if (isTouch()) followPlayer();
       /* fx timers */
       if (!reduced){
         catT += dt; if (catT > 1.4){ catT = 0; catFrame = 1 - catFrame; }
@@ -427,6 +445,7 @@ const GAME = (() => {
     warp(x, y){
       const p = WORLD.findFree(data, x, y);
       player.x = p[0]; player.y = p[1];
+      if (isTouch()) followPlayer();
       SND.sfx.warp();
     },
     /** register hotspot callbacks */

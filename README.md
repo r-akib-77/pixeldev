@@ -56,9 +56,8 @@ Hearts/XP/Lv are game decorations, not real stats — noted in the Help modal.
 │  ├─ world.js           960x608 world: furniture, garden, collisions (SOLIDS),
 │  │                       hotspots (HOTSPOTS/WARP), glows, water zones
 │  ├─ audio.js           SND — every sound is synthesized with WebAudio
-│  ├─ game.js            engine: loop, input, FIXED camera (whole scene stays
-│  │                       stationary on desktop and touch), collisions, FX
-│  │                       (fireflies, petals, water)
+│  ├─ game.js            engine: loop, input, camera (fit desktop / follow
+│  │                       mobile), collisions, FX (fireflies, petals, water)
 │  ├─ ui.js              HUD, hotspots, navbar, panels, map/help, toasts,
 │  │                       touch controls, achievements wiring
 │  └─ main.js            boot: classes, engine init, UI init, resume check,
